@@ -1,0 +1,17 @@
+# /docs/_config.yml
+title: GDS/ePHEM Docs
+description: Documentação do GDS/ePHEM
+theme: jekyll-theme-cayman
+
+# Configurações básicas
+baseurl: "/gds-ephem-docs"
+url: "https://proepidesenvolvimento.github.io"
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+
+# Configurações de diretório
+source: .
+destination: ./_site
