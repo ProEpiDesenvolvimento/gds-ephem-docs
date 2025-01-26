@@ -1,24 +1,36 @@
 ---
-sidebar_position: 2
+
 ---
 
-# Envio de Sinais
+# Enviar de Sinais
 
 Em relação ao fluxo de envio de um sinal, temos o seguinte cenário:
 
-1. Quando o [Líder Comunitário](../glossario#líderliderança-comunitária) realiza uma ação no GDS, o dado é persistido no banco de dados do [GDS](../glossario#guardiões-da-saúde-gds). Neste ponto, temos a informação disponível para ser compartilhada com a Solução de Integração.
+1. Quando o [Líder Comunitário](../glossario#líderliderança-comunitária) realiza uma ação no [GDS](../glossario#guardiões-da-saúde-gds), o dado é persistido no banco de dados do GDS. Neste ponto, temos a informação disponível para ser compartilhada com a Solução de Integração.
 2. Os dados então são transformados antes de serem enviados para o ePHEM. A transformação é necessária para que os dados estejam no formato correto para serem consumidos pelo sistema de integração.
 3. O sistema de integração recebe o dado e inicialmente persiste-o em um banco de dados, marcando-o como CRIADO. Ele develove o id de integração para o GDS.
 4. O sistema de integração, periodicamente, lê os dados marcados como CRIADO, faz a validação, executa uma nova transformação e envia o dado para a ePHEM. Após o envio, o dado é marcado como ENVIADO.
 
 ```mermaid
-graph TD
-    A[GDS] --> B[Transformação]
-    B --> C[Solução de Integração]
-    C --> D[Persistência]
-    D --> E[Validação]
-    E --> F[Transformação]
-    F --> G[ePHEM]
+sequenceDiagram
+    actor CL as Líder Comunitário
+    participant GDS
+    participant Integration as Integração
+    participant EPHEM
+
+    CL->>GDS: Envia dados de saúde
+    GDS->>GDS: Armazena dados originais
+    GDS->>GDS: Transforma dados
+    GDS->>Integration: Envia dados do Sinal
+    Integration->>Integration: Salva com status CRIADO
+    Integration->>GDS: Retorna ID de integração
+    GDS->>CL: Retorna mensagem de sucesso
+    Integration->>Integration: Valida dados
+    Integration->>Integration: Transforma para formato ePHEM
+    Integration->>EPHEM: Envia dados transformados
+    EPHEM->>EPHEM: Armazena dados
+    EPHEM->>Integration: Retorna mensagem de sucesso e ID do Sinal
+    Integration->>Integration: Marca dados como PROCESSADO
 ```
 
 ## Dicionário de Dados
@@ -497,7 +509,9 @@ flowchart TB
 
 ### Dicionário de Dados do ePHEM
 
-Por fim, o contrato de entrada do ePHEM. O ePHEM é baseado no Odoo assim a integração não é feita usando XML por meio de uma biblioteca Java (org.apache.xmlrpc.client.XmlRpcClient) que faz a chamada para o método execute do Odoo.
+O ePHEM é baseado no Odoo assim a integração não é feita usando XML por meio de uma biblioteca Java (org.apache.xmlrpc.client.XmlRpcClient) que faz a chamada para o método execute do ePHEM.
+
+Para inferir os métodos e os parâmetros que devem ser passados, foi necessário analisar as requisicoes HTTP feitas pelo Odoo. A partir disso, foi possível inferir os métodos e os parâmetros que devem ser passados.
 
 #### Contrato de Entrada do ePHEM
 

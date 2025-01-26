@@ -1,7 +1,8 @@
 {
-  "label": "Fluxo de Dados",
+  "label": "Casos de Uso",
   "position": 2,
   "link": {
+    "description": "Explore nossos tutoriais passo a passo para aprender mais sobre a plataforma.",
     "type": "generated-index"
   }
 }
