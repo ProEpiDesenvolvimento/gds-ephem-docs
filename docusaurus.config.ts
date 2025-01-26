@@ -5,8 +5,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "GDS - Ephem - Docs",
-  tagline: "Documentação do projeto de Integração entre GDS e Ephem",
+  title: "Integração - GDS - Ephem",
+  tagline: "",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
