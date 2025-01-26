@@ -41,7 +41,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/ProEpiDesenvolvimento/gds-ephem-docs",
+            "https://github.com/ProEpiDesenvolvimento/gds-ephem-docs/blob/main",
         },
         blog: {
           showReadingTime: true,
@@ -52,7 +52,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/ProEpiDesenvolvimento/gds-ephem-docs",
+            "https://github.com/ProEpiDesenvolvimento/gds-ephem-docs/blob/main",
           // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",
