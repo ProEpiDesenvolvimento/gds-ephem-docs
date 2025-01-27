@@ -7,9 +7,9 @@
 Em relação ao fluxo de envio de um sinal, temos o seguinte cenário:
 
 1. Quando o [Líder Comunitário](../glossario#líderliderança-comunitária) realiza uma ação no [GDS](../glossario#guardiões-da-saúde-gds), o dado é persistido no banco de dados do GDS. Neste ponto, temos a informação disponível para ser compartilhada com a Solução de Integração.
-2. Os dados então são transformados antes de serem enviados para o ePHEM. A transformação é necessária para que os dados estejam no formato correto para serem consumidos pelo sistema de integração.
+2. Os dados então são transformados antes de serem enviados para o  [ePHEM](../glossario#ephem). A transformação é necessária para que os dados estejam no formato correto para serem consumidos pelo sistema de integração.
 3. O sistema de integração recebe o dado e inicialmente persiste-o em um banco de dados, marcando-o como CRIADO. Ele develove o id de integração para o GDS.
-4. O sistema de integração, periodicamente, lê os dados marcados como CRIADO, faz a validação, executa uma nova transformação e envia o dado para a ePHEM. Após o envio, o dado é marcado como ENVIADO.
+4. O sistema de integração, periodicamente, lê os dados marcados como CRIADO, faz a validação, executa uma nova transformação e envia o dado para a ePHEM. Após o envio, o dado é marcado como PROCESSADO.
 
 ```mermaid
 sequenceDiagram

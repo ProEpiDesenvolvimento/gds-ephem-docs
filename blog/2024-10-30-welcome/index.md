@@ -38,7 +38,6 @@ Aqui você encontrará informações detalhadas sobre:
 
 - Fluxos de integração entre GDS e ePHEM
 - APIs e documentação técnica
-- Guias de implementação
 - Manuais de uso
 - Indicadores e métricas
 - Procedimentos operacionais
