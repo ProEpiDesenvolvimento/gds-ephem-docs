@@ -13,7 +13,7 @@ O Google Data Studio não possui um filtro nativo por usuário. Para contornar e
 
 ![captura de tela da planilha de acesso](./imgs/planilha-acesso.png)
 
-### Página 1
+### Página 1 - Sinais
 #### Widget Quantidade de Sinais
 
 ![widget quantidade de sinais](./imgs/widget-qtde-sinais.png)
@@ -250,13 +250,15 @@ O Google Data Studio não possui um filtro nativo por usuário. Para contornar e
 
 ![widget filtros página 1](./imgs/widget-filtros-pagina-1.png)
 
+
 - Controle de Período (https://cloud.google.com/looker/docs/studio/date-range-control)
 - Filtro de País
 - Filtro de Estado
 - Filtro de Municipio
 - Filtro de Status do Sinal
+- Filtro é Evento (gds_ephem_integracao_view_cache_join.evento)
 
-### Página 2
+### Página 2 - Reportes em Geral
 
 #### Widget Reportes Por País
 
@@ -417,3 +419,250 @@ O Google Data Studio não possui um filtro nativo por usuário. Para contornar e
 - Filtro de Cidade (usuario_cidade)
 - Filtro de Tipo de Reporte (evento_tipo_reporte)
 - Controle de Período (https://cloud.google.com/looker/docs/studio/date-range-control)
+
+## Página 3 - Líderes
+
+### Widget Engajamento Líderes
+
+![widget engajamento líderes](./imgs/widget-engajamento-lideres.png)
+
+| Atributo                | Valor                                                         |
+| ----------------------- | ------------------------------------------------------------- |
+| Tipo                    | Table                                                         |
+| Fonte de dados          | [daily_engagement_join](02-fontes-dados.md#tabelas-mescladas) |
+| Dimensão                | Data                                                          |
+| Métrica 1               | Soma                                                          |
+| Campo de origem 1       | Líderes                                                       |
+| Tipo de dados 1         | Número                                                        |
+| Formato de exibição 1   | Padrão                                                        |
+| Agregação 1             | Soma                                                          |
+| Cálculo de comparação 1 | Nenhum                                                        |
+| Cálculo em execução 1   | Nenhuma                                                       |
+| Metrica 2               | Soma                                                          |
+| Campo de origem 2       | Reportando                                                    |
+| Tipo de dados 2         | Número                                                        |
+| Formato de exibição 2   | Padrão                                                        |
+| Agregação 2             | Soma                                                          |
+| Cálculo de comparação 2 | Nenhum                                                        |
+| Cálculo em execução 2   | Nenhuma                                                       |
+| Métrica 3               | Calculado                                                     |
+| Tipo de dados 3         | Porcentagem                                                   |
+| Formato de exibição 3   | Percent(2)                                                    |
+| Fórmula 3               | SUM(Reportando)/SUM(Líderes)                                  |
+| Agregação 3             | Automático                                                    |
+| Cálculo de comparação 3 | Nenhum                                                        |
+| Cálculo em execução 3   | Nenhuma                                                       |
+| Métrica 4               | Soma                                                          |
+| Campo de origem 4       | Positivos                                                     |
+| Tipo de dados 4         | Número                                                        |
+| Formato de exibição 4   | Padrão                                                        |
+| Agregação 4             | Soma                                                          |
+| Cálculo de comparação 4 | Nenhum                                                        |
+| Cálculo em execução 4   | Nenhuma                                                       |
+| Métrica 5               | Soma                                                          |
+| Campo de origem 5       | Negativos                                                     |
+| Tipo de dados 5         | Número                                                        |
+| Formato de exibição 5   | Padrão                                                        |
+| Agregação 5             | Soma                                                          |
+| Cálculo de comparação 5 | Nenhum                                                        |
+| Cálculo em execução 5   | Nenhuma                                                       |
+| Número de Linhas        | Paginação                                                     |
+| Classificar             | Data                                                          |
+
+### Widget Gênero
+
+![widget gênero](./imgs/widget-genero.png)
+
+| Atributo                | Valor                                                                  |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Tipo                    | Tabela                                                                 |
+| Fonte de dados          | [filtro_leaders_full_data_cache](02-fontes-dados.md#tabelas-mescladas) |
+| Dimensão                | gender                                                                 |
+| Métrica 1               | Soma                                                                   |
+| Campo de origem 1       | Qtde                                                                   |
+| Tipo de dados 1         | Número                                                                 |
+| Formato de exibição 1   | Padrão                                                                 |
+| Agregação 1             | Soma                                                                   |
+| Cálculo de comparação 1 | Nenhum                                                                 |
+| Cálculo em execução 1   | Nenhuma                                                                |
+| Exibir linha de resumo  | Sim                                                                    |
+
+### Widget Faixa Etária
+
+![widget faixa etária](./imgs/widget-faixa-etaria.png)
+
+| Atributo                | Valor                                                                  |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Tipo                    | Tabela                                                                 |
+| Fonte de dados          | [filtro_leaders_full_data_cache](02-fontes-dados.md#tabelas-mescladas) |
+| Dimensão                | age_group                                                              |
+| Métrica 1               | Soma                                                                   |
+| Campo de origem 1       | Qtde                                                                   |
+| Tipo de dados 1         | Número                                                                 |
+| Formato de exibição 1   | Padrão                                                                 |
+| Agregação 1             | Soma                                                                   |
+| Cálculo de comparação 1 | Nenhum                                                                 |
+| Cálculo em execução 1   | Nenhuma                                                                |
+| Métrica 2               | Soma                                                                   |
+| Campo de origem 2       | Qtde                                                                   |
+| Tipo de dados 2         | Porcentagem                                                            |
+| Formato de exibição 2   | Padrão                                                                 |
+| Agregação 2             | Soma                                                                   |
+| Cálculo de comparação 2 | Porcentagem do total                                                   |
+| Cálculo em execução 2   | Nenhuma                                                                |
+| Exibir linha de resumo  | Sim                                                                    |
+
+### Cidade de Moradia
+
+![widget cidade de moradia](./imgs/widget-cidade-moradia.png)
+
+| Atributo                | Valor                                                                  |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Tipo                    | Tabela                                                                 |
+| Fonte de dados          | [filtro_leaders_full_data_cache](02-fontes-dados.md#tabelas-mescladas) |
+| Dimensão 1              | País                                                                   |
+| Dimensão 2              | state                                                                  |
+| Dimensão 3              | city                                                                   |
+| Métrica 1               | Soma                                                                   |
+| Campo de origem 1       | Qtde                                                                   |
+| Tipo de dados 1         | Número                                                                 |
+| Formato de exibição 1   | Padrão                                                                 |
+| Agregação 1             | Soma                                                                   |
+| Cálculo de comparação 1 | Nenhum                                                                 |
+| Cálculo em execução 1   | Nenhuma                                                                |
+| Métrica 2               | Soma                                                                   |
+| Campo de origem 2       | Qtde                                                                   |
+| Tipo de dados 2         | Porcentagem                                                            |
+| Formato de exibição 2   | Padrão                                                                 |
+| Agregação 2             | Soma                                                                   |
+| Cálculo de comparação 2 | Porcentagem do total                                                   |
+| Cálculo em execução 2   | Nenhuma                                                                |
+| Exibir linha de resumo  | Sim                                                                    |
+
+### Widget Tempo de Liderança
+
+![widget tempo de liderança](./imgs/widget-tempo-lideranca.png)
+
+| Atributo                | Valor                                                                  |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Tipo                    | Tabela                                                                 |
+| Fonte de dados          | [filtro_leaders_full_data_cache](02-fontes-dados.md#tabelas-mescladas) |
+| Dimensão                | tempo_lideranca                                                        |
+| Métrica 1               | Soma                                                                   |
+| Campo de origem 1       | Qtde                                                                   |
+| Tipo de dados 1         | Número                                                                 |
+| Formato de exibição 1   | Padrão                                                                 |
+| Agregação 1             | Soma                                                                   |
+| Cálculo de comparação 1 | Nenhum                                                                 |
+| Cálculo em execução 1   | Nenhuma                                                                |
+| Exibir linha de resumo  | Sim                                                                    |
+
+### Widget Ativiade Laboral
+
+![widget atividade laboral](./imgs/widget-atividade-laboral.png)
+
+| Atributo                | Valor                                                                  |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Tipo                    | Tabela                                                                 |
+| Fonte de dados          | [filtro_leaders_full_data_cache](02-fontes-dados.md#tabelas-mescladas) |
+| Dimensão                | exerce_atividade_laboral                                               |
+| Métrica 1               | Soma                                                                   |
+| Campo de origem 1       | Qtde                                                                   |
+| Tipo de dados 1         | Número                                                                 |
+| Formato de exibição 1   | Padrão                                                                 |
+| Agregação 1             | Soma                                                                   |
+| Cálculo de comparação 1 | Nenhum                                                                 |
+| Cálculo em execução 1   | Nenhuma                                                                |
+| Métrica 2               | Soma                                                                   |
+| Campo de origem 2       | Qtde                                                                   |
+| Tipo de dados 2         | Porcentagem                                                            |
+| Formato de exibição 2   | Padrão                                                                 |
+| Agregação 2             | Soma                                                                   |
+| Cálculo de comparação 2 | Porcentagem do total                                                   |
+| Cálculo em execução 2   | Nenhuma                                                                |
+| Exibir linha de resumo  | Sim                                                                    |
+
+### Widget Reside na Comunidade
+
+![widget reside na comunidade](./imgs/widget-reside-na-comunidade.png)
+
+| Atributo                | Valor                                                                  |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Tipo                    | Tabela                                                                 |
+| Fonte de dados          | [filtro_leaders_full_data_cache](02-fontes-dados.md#tabelas-mescladas) |
+| Dimensão                | reside_comunidade                                                      |
+| Métrica 1               | Soma                                                                   |
+| Campo de origem 1       | Qtde                                                                   |
+| Tipo de dados 1         | Número                                                                 |
+| Formato de exibição 1   | Padrão                                                                 |
+| Agregação 1             | Soma                                                                   |
+| Cálculo de comparação 1 | Nenhum                                                                 |
+| Cálculo em execução 1   | Nenhuma                                                                |
+| Métrica 2               | Soma                                                                   |
+| Campo de origem 2       | Qtde                                                                   |
+| Tipo de dados 2         | Porcentagem                                                            |
+| Formato de exibição 2   | Padrão                                                                 |
+| Agregação 2             | Soma                                                                   |
+| Cálculo de comparação 2 | Porcentagem do total                                                   |
+| Cálculo em execução 2   | Nenhuma                                                                |
+| Exibir linha de resumo  | Sim                                                                    |
+
+### Widget Meio Residência
+
+![widget meio residência](./imgs/widget-meio-residencia.png)
+
+| Atributo                | Valor                                                                  |
+| ----------------------- | ---------------------------------------------------------------------- |
+| Tipo                    | Tabela                                                                 |
+| Fonte de dados          | [filtro_leaders_full_data_cache](02-fontes-dados.md#tabelas-mescladas) |
+| Dimensão                | meio_residencia                                                        |
+| Métrica 1               | Soma                                                                   |
+| Campo de origem 1       | Qtde                                                                   |
+| Tipo de dados 1         | Número                                                                 |
+| Formato de exibição 1   | Padrão                                                                 |
+| Agregação 1             | Soma                                                                   |
+| Cálculo de comparação 1 | Nenhum                                                                 |
+| Cálculo em execução 1   | Nenhuma                                                                |
+| Métrica 2               | Soma                                                                   |
+| Campo de origem 2       | Qtde                                                                   |
+| Tipo de dados 2         | Porcentagem                                                            |
+| Formato de exibição 2   | Padrão                                                                 |
+| Agregação 2             | Soma                                                                   |
+| Cálculo de comparação 2 | Porcentagem do total                                                   |
+| Cálculo em execução 2   | Nenhuma                                                                |
+| Exibir linha de resumo  | Sim                                                                    |
+
+### Widget Ranking de Engajamento por Dia
+
+![widget ranking de engajamento por dia](./imgs/widget-ranking-engajamento-por-dia.png)
+
+| Atributo       | Valor                                                        |
+| -------------- | ------------------------------------------------------------ |
+| Tipo           | Tabela                                                       |
+| Fonte de dados | [filtro_daily_summary](02-fontes-dados.md#tabelas-mescladas) |
+| Dimensão 1     | Data                                                         |
+| Dimensão 2     | País                                                         |
+| Dimensão 3     | state                                                        |
+| Dimensão 4     | Cidade                                                       |
+| Dimensão 5     | Líderes                                                      |
+| Dimensão 6     | Reportes                                                     |
+| Dimensão 7     | %                                                            |
+| Classificar    | Data                                                         |
+
+### Widget Filtros Página 3
+
+![widget filtros página 3](./imgs/widget-filtros-pagina-3.png)
+
+- Controle de Pais (filter_leaders_full_data_cache)
+- Controle de Estado (filter_leaders_full_data_cache)
+- Controle de Cidade (filter_leaders_full_data_cache)
+
+
+
+
+
+
+
+
+
+
