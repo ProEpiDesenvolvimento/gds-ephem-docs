@@ -509,9 +509,11 @@ flowchart TB
 
 ### Dicionário de Dados do ePHEM
 
-O [ePHEM](../glossario.md#ephem) é baseado no [Odoo](https://www.odoo.com/) assim a integração é feita por meio de comandos `RPC` via `HTTP` com payloads em `XML` conforme [documentação oficial](https://www.odoo.com/documentation/18.0/pt_BR/developer/reference/external_api.html). Para essa comunicação no Integrador é utilizada uma biblioteca Java (org.apache.xmlrpc.client.XmlRpcClient) que faz a chamada para o método `execute` do ePHEM.
+O [ePHEM](../glossario.md#ephem) é um sistema baseado no [Odoo](https://www.odoo.com/) e sua integração é realizada através de API `REST` seguindo o protocolo `XML-RPC`. As chamadas são feitas via `HTTP` conforme especificado na documentação oficial do Odoo.
 
-Para inferir os métodos e os parâmetros que devem ser passados, foi necessário analisar as requisicoes HTTP feitas pelo Odoo. A partir disso, foi possível inferir os métodos e os parâmetros que devem ser passados.
+No Integrador, essa comunicação é implementada usando a biblioteca Java org.apache.xmlrpc.client.XmlRpcClient, que realiza as chamadas para o método `execute` do ePHEM.
+
+Para inferir os métodos e os parâmetros necessários, foi necessário realizar uma análise das requisições HTTP enviadas e recebidas pelo Odoo durante a execução de suas funcionalidades. Essa análise envolveu a inspeção dos cabeçalhos, corpos das requisições e respostas, bem como a identificação dos padrões de comunicação entre o cliente e o servidor. Com base nessa investigação, foi possível mapear os endpoints utilizados, os métodos HTTP correspondentes (como GET, POST, PUT ou DELETE) e os parâmetros específicos que precisam ser incluídos para cada tipo de operação. Essa abordagem permitiu não apenas compreender a estrutura das requisições, mas também replicá-las, garantindo a integração e a comunicação com a API do ePHEM.
 
 #### Contrato de Entrada do ePHEM
 
