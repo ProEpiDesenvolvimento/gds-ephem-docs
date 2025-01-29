@@ -509,7 +509,7 @@ flowchart TB
 
 ### Dicionário de Dados do ePHEM
 
-O ePHEM é baseado no Odoo assim a integração não é feita usando XML por meio de uma biblioteca Java (org.apache.xmlrpc.client.XmlRpcClient) que faz a chamada para o método execute do ePHEM.
+O [ePHEM](../glossario.md#ephem) é baseado no [Odoo](https://www.odoo.com/) assim a integração é feita por meio de comandos `RPC` via `HTTP` com payloads em `XML` conforme [documentação oficial](https://www.odoo.com/documentation/18.0/pt_BR/developer/reference/external_api.html). Para essa comunicação no Integrador é utilizada uma biblioteca Java (org.apache.xmlrpc.client.XmlRpcClient) que faz a chamada para o método `execute` do ePHEM.
 
 Para inferir os métodos e os parâmetros que devem ser passados, foi necessário analisar as requisicoes HTTP feitas pelo Odoo. A partir disso, foi possível inferir os métodos e os parâmetros que devem ser passados.
 
