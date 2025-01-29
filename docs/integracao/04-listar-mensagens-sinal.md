@@ -7,7 +7,13 @@
 
 ## Contexto
 
-Cada evento registrado no ePHEM possui um sistema de mensagens associado. O sistema de mensagens por meio do qual os usuários podem trocar mensagens entre si, além de manter um histórico de mensagens.
+O [ePHEM](../glossario.md#ephem) possui um sistema de comunicação integrado onde cada evento tem sua própria área de mensagens. Este sistema permite:
+
+1. Troca de mensagens entre os usuários envolvidos no [Sinal](../glossario.md#sinal)
+2. Armazenamento do histórico completo das conversas
+3. Acompanhamento de todas as interações relacionadas ao [Sinal](../glossario.md#sinal)
+
+Isso funciona como um chat dedicado por evento, mantendo todas as comunicações organizadas e facilmente acessíveis.
 
 ![Listar Mensagens de um Sinal](./imgs/odoo-messages.png)
 
