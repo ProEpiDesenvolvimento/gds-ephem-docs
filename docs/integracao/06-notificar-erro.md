@@ -117,4 +117,4 @@ Hostname:** app-server-prod-01
 
 A implementação com Notify.events fornece uma solução robusta e flexível para notificação de erros, permitindo que a equipe seja alertada rapidamente sobre problemas na aplicação através de múltiplos canais. Isso melhora significativamente o tempo de resposta a incidentes e a visibilidade de problemas no sistema.
 
-A solução é de baixo custo, fácil manutenção e permite que diferentes membros da equipe recebam notificações em suas plataformas preferidas, sem a necessidade de infraestrutura adicional.
+A solução é de baixo custo, fácil manutenção (exige apenas uma url simples de integração) e permite que diferentes membros da equipe recebam notificações em suas plataformas preferidas, sem a necessidade de infraestrutura adicional.
